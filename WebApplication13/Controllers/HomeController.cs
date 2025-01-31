@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using WebApplication13.Filters;
 
 namespace WebApplication13.Controllers
 {
@@ -14,6 +15,7 @@ namespace WebApplication13.Controllers
         // api/home/getfiles
         [HttpGet]
         [Route("api/home/getfiles")]
+        [CustomRateLimit(limit: 5, window: 1)]
         public HttpResponseMessage GetFiles()
         {
             // By Mohammed Ahmed Hussien Babiker
